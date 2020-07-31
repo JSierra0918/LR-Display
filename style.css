@@ -1,0 +1,9 @@
+#defaultCanvas0 {
+    display: flex;
+    place-items: center;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+}
