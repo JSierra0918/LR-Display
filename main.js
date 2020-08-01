@@ -41,8 +41,7 @@ function loss(pred, labels) {
 
 function draw() {
     background(0);
-    stroke(255);
-    strokeWeight(4);
+
 
     //Train
     if (xValue.length > 0) {
@@ -61,14 +60,15 @@ function draw() {
         let x2 = map(lineXs[1], 0, 1, 0, width);
         let y1 = map(yDataSync[0], 0, 1, height, 0);
         let y2 = map(yDataSync[1], 0, 1, height, 0);
-        
+        stroke(237, 34, 93)
         line(x1, y1, x2, y2)
     }
 
     for (let i = 0; i < xValue.length; i++) {
         let px = map(xValue[i], 0, 1, 0, width);
         let py = map(yValue[i], 0, 1, height, 0);
-
+        stroke(255);
+        strokeWeight(5);
         point(px, py);
     }
 
