@@ -45,8 +45,6 @@ function draw() {
     strokeWeight(4);
 
     //Train
-
-
     if (xValue.length > 0) {
         tf.tidy(() => {
             const ys = tf.tensor1d(yValue);
@@ -63,6 +61,7 @@ function draw() {
         let x2 = map(lineXs[1], 0, 1, 0, width);
         let y1 = map(yDataSync[0], 0, 1, height, 0);
         let y2 = map(yDataSync[1], 0, 1, height, 0);
+        
         line(x1, y1, x2, y2)
     }
 
