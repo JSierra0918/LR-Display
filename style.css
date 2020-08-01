@@ -6,4 +6,18 @@
 
 .header {
     text-align: center;
+    margin-bottom: 5vh;
+}
+
+.clear-button {
+    background-color: #c2004b;
+    color: white;
+    padding: 10px 40px;
+    font-size: large;
+    border: none;
+    border-radius: 5px;
+}
+
+.clear-button:hover  {
+    cursor: pointer;
 }

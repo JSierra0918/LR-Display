@@ -1,11 +1,15 @@
 "use strict"
+
+let w = window.innerWidth;
+let h = window.innerHeight;  
 let xValue = [];
 let yValue = [];
 
 let m, b;
 
+const optimizer = optimize(0.5);
 function setup() {
-    createCanvas(800, 800);
+    canvas=createCanvas(w, h);
 
     tf.tidy(() => {
         m = tf.variable(tf.scalar(random(1)));
@@ -13,10 +17,9 @@ function setup() {
     })
 }
 
-function mousePressed() {
+function touchStarted() {
     let x = map(mouseX, 0, width, 0, 1);
     let y = map(mouseY, 0, height, 1, 0);
-
     xValue.push(x);
     yValue.push(y);
 }
@@ -29,7 +32,7 @@ function predict(x) {
 }
 
 function optimize(learningRate) {
-    return tf.train.sgd(learningRate)
+    return tf.tidy(() => tf.train.sgd(learningRate))
 }
 
 function loss(pred, labels) {
@@ -45,9 +48,8 @@ function draw() {
 
 
     if (xValue.length > 0) {
-        const optimizer = tf.train.sgd(.5);
-        const ys = tf.tensor1d(yValue);
         tf.tidy(() => {
+            const ys = tf.tensor1d(yValue);
             optimizer.minimize(() => loss(predict(xValue), ys));
         })
 
@@ -72,4 +74,18 @@ function draw() {
     }
 
     console.log(tf.memory().numTensors);
+}
+
+
+const clearButton = document.querySelector(".clear-button");
+
+clearButton.addEventListener('click', function () {
+    xValue = [];
+    yValue = [];
+});
+
+window.onresize = function () {
+    w = window.innerWidth;
+    h = window.innerHeight;  
+    canvas.size(w,h);
 }
