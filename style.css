@@ -9,6 +9,9 @@
     margin-bottom: 5vh;
 }
 
+.header p {
+    font-size: 5vw;
+}
 .clear-button {
     background-color: #c2004b;
     color: white;
