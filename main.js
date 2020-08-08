@@ -8,7 +8,7 @@ let m, b;
 const optimizer = optimize(0.5);
 
 function setup() {
-    canvas=createCanvas(w, h);
+    canvas = createCanvas(w, h);
 
     tf.tidy(() => {
         m = tf.variable(tf.scalar(random(1)));
