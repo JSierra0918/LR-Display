@@ -10,9 +10,9 @@
 }
 
 .header p {
-    font-size: 1.3vw;
+    font-size: 36px;
 }
-.clear-button {
+.clear-button, .runML {
     background-color: #c2004b;
     color: white;
     padding: 10px 40px;
@@ -21,6 +21,10 @@
     border-radius: 5px;
 }
 
+
+.runML {
+    background-color: teal;
+}
 .clear-button:hover  {
     cursor: pointer;
 }

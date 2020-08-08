@@ -4,10 +4,9 @@ let w = window.innerWidth;
 let h = window.innerHeight;  
 let xValue = [];
 let yValue = [];
-
 let m, b;
-
 const optimizer = optimize(0.5);
+
 function setup() {
     canvas=createCanvas(w, h);
 
@@ -41,7 +40,6 @@ function loss(pred, labels) {
 
 function draw() {
     background(0);
-
 
     //Train
     if (xValue.length > 0) {
